@@ -16,22 +16,27 @@
 
 # Get the long list of APNs
 PRODUCT_COPY_FILES += \
-    vendor/aosp/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml
+    vendor/paosp/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml
 
 # Inherit AOSP device configuration for berkeley
 $(call inherit-product, device/huawei/berkeley/full_berkeley.mk)
 
-# Inherit some common AOSP stuff.
-$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
+# Inherit some common PornAOSP stuff.
+$(call inherit-product, vendor/paosp/config/common_full_phone.mk)
 
 # Disable dynamic partition size
 PRODUCT_USE_DYNAMIC_PARTITION_SIZE := false
 
 # Device identifier. This must come after all inclusions
-PRODUCT_NAME := aosp_berkeley
+PRODUCT_NAME := paosp_berkeley
 PRODUCT_DEVICE := berkeley
 PRODUCT_BRAND := Huawei
 PRODUCT_MODEL := Honor View 10
 PRODUCT_MANUFACTURER := Huawei
 
 PRODUCT_GMS_CLIENTID_BASE := android-huawei
+
+# Device maintainer information
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.paosp.maintainer=divadsn \
+    ro.paosp.donate="https://paypal.me/divadsn"
